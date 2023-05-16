@@ -1,0 +1,29 @@
+.message {
+  word-break: break-all;
+  border-radius: 10px;
+  background-color: #005733;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: 70%;
+
+  &__quoted {
+    background-color: #003624;
+    align-self: stretch;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 7px;
+    text-align: right;
+  }
+
+  &.incoming {
+    align-self: flex-start;
+    background-color: #00663c;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+}

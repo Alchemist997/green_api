@@ -1,0 +1,10 @@
+$main-dark: #111;
+$main-bc: #222;
+$main-highlight: #202c33;
+$light-opacity: rgba(#fff, 0.2);
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

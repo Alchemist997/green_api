@@ -1,0 +1,67 @@
+@import-normalize;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import './variables.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $main-bc;
+  color: #e9edef;
+}
+
+button,
+.btn-link {
+  @extend %flex-center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #e9edef;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  transition: 0.3s;
+}
+
+input {
+  background-color: $main-bc;
+  color: inherit;
+  font-size: 1rem;
+  border: none;
+  transition: 0.3s;
+}
+
+a {
+  cursor: pointer;
+  line-height: initial;
+  text-decoration: none;
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+@import './components/Auth/Auth.scss';
+@import './components/ui/buttons/BtnDefault/BtnDefault.scss';
+@import './components/WorkingArea/WorkingArea.scss';
+@import './components/Sidebar/Sidebar/SideBar.scss';
+@import './components/Sidebar/SidebarHeader/SidebarHeader.scss';
+@import './components/ChatArea/ChatArea.scss';
+@import './components/ui/InputPhone/InputPhone.scss';
+@import './components/Sidebar/ChatsListItem/ChatsListItem.scss';
+@import './components/ui/inputs/MessageInput.scss';
+@import './components/ui/messages/Message.scss';

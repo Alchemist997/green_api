@@ -1,0 +1,13 @@
+.input-phone {
+  &-wrap {
+    align-self: center;
+    margin: auto 0;
+
+    input {
+      border-radius: 10px;
+      background-color: $main-dark;
+      padding: 8px 12px;
+      width: 100%;
+    }
+  }
+}

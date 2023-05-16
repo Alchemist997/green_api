@@ -1,0 +1,29 @@
+$input-color: #2a3033;
+
+.message-input {
+  &-wrap {
+    position: relative;
+    background-color: $input-color;
+    padding: 10px 70px;
+    padding-left: 70px;
+    width: 100%;
+
+    .loader_circle {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 15px;
+      bottom: calc(50% - 15px);
+      opacity: 0;
+    }
+
+    &.isLoading .loader_circle {
+      opacity: 1;
+    }
+  }
+
+  background-color: lighten($input-color,10);
+  border-radius: 10px;
+  padding: 12px 25px 15px;
+  width: 100%;
+}

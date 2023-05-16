@@ -1,0 +1,34 @@
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+
+  &__messages {
+    padding: 20px 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &__placeholder-btn {
+    background-color: $main-dark;
+    padding: 15px 20px;
+    align-self: center;
+    margin: auto 0;
+
+    &:hover {
+      background-color: lighten($main-dark, 2);
+    }
+
+    &:active {
+      background-color: lighten($main-dark, 4);
+    }
+  }
+
+  &__empty-info {
+    align-self: center;
+    margin: auto 0;
+  }
+}

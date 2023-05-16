@@ -1,0 +1,21 @@
+.sidebar__header {
+  background-color: $main-highlight;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+
+  .btn {
+    flex-grow: 1;
+    height: 100%;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+      flex-grow: 6;
+    }
+
+    svg {
+      max-height: 90%;
+    }
+  }
+}

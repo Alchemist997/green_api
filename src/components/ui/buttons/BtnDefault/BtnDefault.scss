@@ -1,0 +1,18 @@
+$btn-bac: #248851;
+
+.btn {
+  background-color: $btn-bac;
+
+  &:hover {
+    background-color: darken($btn-bac, 10);
+  }
+
+  &:active {
+    background-color: darken($btn-bac, 20);
+  }
+
+  &:disabled {
+    background-color: #929292;
+    cursor: initial;
+  }
+}

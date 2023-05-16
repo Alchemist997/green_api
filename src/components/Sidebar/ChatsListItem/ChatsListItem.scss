@@ -1,0 +1,42 @@
+.chat-list-item {
+  position: relative;
+  border-radius: 0;
+  padding-left: 50px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &__chat-id {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    margin-bottom: 3px;
+    max-width: 100%;
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &.active {
+    background-color: $light-opacity;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: $light-opacity;
+  }
+
+  &:hover {
+    background-color: $light-opacity;
+  }
+}
