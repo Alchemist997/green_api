@@ -14,8 +14,8 @@ function App() {
   const [authState, setAuthState] = useState(defaultAuthData);
 
   useEffect(() => {
-    const idInstance = sessionStorage.getItem('green_idInstance');
-    const token = sessionStorage.getItem('green_token');
+    const idInstance = localStorage.getItem('green_idInstance');
+    const token = localStorage.getItem('green_token');
     if (!idInstance || !token) return;
     setAuthState({
       isAuth: true,

@@ -19,6 +19,7 @@ function ChatArea({ currentChat, setCurrentChat, chatHistory, setChatsHistory })
                   .map(el => <Message
                     key={el.time}
                     text={el.text}
+                    date={el.time}
                     quoted={el.quoted}
                     incoming={el.incoming} />)
 

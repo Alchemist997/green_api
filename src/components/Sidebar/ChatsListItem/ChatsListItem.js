@@ -1,4 +1,4 @@
-function ChatsListItem({ data, action, currentChat }) {
+function ChatsListItem({ data, action, currentChat, senderName }) {
 
   const isActive = currentChat === data.chatId;
 
@@ -8,7 +8,7 @@ function ChatsListItem({ data, action, currentChat }) {
       onClick={() => { action(data.chatId); }}
     >
       <span className='chat-list-item__chat-id'>+{data.chatId}</span>
-      <span className='chat-list-item__text'>{data.lastMessage?.text ?? 'Новый чат'}</span>
+      <span className='chat-list-item__text'>{data.lastMessage?.senderName}: {data.lastMessage?.text ?? 'Новый чат'}</span>
     </button>
   );
 }

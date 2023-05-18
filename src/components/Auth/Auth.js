@@ -26,8 +26,8 @@ function Auth({ setAuthState }) {
           idInstance,
           token: apiTokenInstance,
         });
-        sessionStorage.setItem('green_idInstance', idInstance);
-        sessionStorage.setItem('green_token', apiTokenInstance);
+        localStorage.setItem('green_idInstance', idInstance);
+        localStorage.setItem('green_token', apiTokenInstance);
       })
       .catch(error => {
         error.message === 'NOT_AUTH'

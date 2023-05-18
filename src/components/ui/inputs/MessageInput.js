@@ -30,18 +30,20 @@ function MessageInput({ currentChat, setChatsHistory }) {
   }
 
   return (
-    <div className={`${'message-input-wrap '} ${isLoading ? 'isLoading' : ''}`}>
+    <div className='message-input-wrap-outer'>
+      <div className={`${'message-input-wrap '} ${isLoading ? 'isLoading' : ''}`}>
 
-      <SVG name='loader_circle' />
+        <SVG name='loader_circle' />
 
-      <form action='#' onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          className='message-input'
-          value={messageText}
-          onChange={evt => { setMessageText(evt.target.value); }}
-        />
-      </form>
+        <form action='#' onSubmit={onSubmitHandler}>
+          <input
+            type="text"
+            className='message-input'
+            value={messageText}
+            onChange={evt => { setMessageText(evt.target.value); }}
+          />
+        </form>
+      </div>
     </div>
   );
 }

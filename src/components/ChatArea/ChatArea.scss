@@ -1,11 +1,13 @@
 .chat-area {
+  min-height: inherit;
+  margin-left: 350px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: stretch;
 
   &__messages {
-    padding: 20px 5vw;
+    padding: 20px 5vw 80px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

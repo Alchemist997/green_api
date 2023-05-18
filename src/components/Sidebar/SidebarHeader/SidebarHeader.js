@@ -16,8 +16,8 @@ function SidebarHeader({ setCurrentChat }) {
         title='Выйти'
         action={() => {
           setAuthState({ isAuth: false });
-          sessionStorage.removeItem('green_idInstance');
-          sessionStorage.removeItem('green_token');
+          localStorage.removeItem('green_idInstance');
+          localStorage.removeItem('green_token');
         }}>
 
         <SVG name='logout' />

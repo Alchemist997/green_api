@@ -1,14 +1,16 @@
 import ChatArea from '../ChatArea/ChatArea';
 import SideBar from './../Sidebar/Sidebar/SideBar';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { getUpdates } from '../../utils/axios';
 import { AuthContext } from '../../App';
+import Audio from '../ui/audio/Audio';
 
 function WorkingArea() {
   const [currentChat, setCurrentChat] = useState(null);
   const [chatsHistory, setChatsHistory] = useState({});
   const { authState, setAuthState } = useContext(AuthContext);
   const { idInstance, token } = authState;
+  const notify = useRef();
 
   useEffect(() => {
     const startDate = Date.now();
@@ -30,8 +32,8 @@ function WorkingArea() {
 
           if (isUnAuthorized) {
             setAuthState({ isAuth: false });
-            sessionStorage.removeItem('green_idInstance');
-            sessionStorage.removeItem('green_token');
+            localStorage.removeItem('green_idInstance');
+            localStorage.removeItem('green_token');
             alert('Необходимо авторизовать Instance в ЛК Green API');
             return;
           }
@@ -39,17 +41,25 @@ function WorkingArea() {
 
           if (text) {
             const quoted = msgData?.messageData?.quotedMessage?.textMessage;
+            const senderName = msgData?.senderData.senderName;
+            const chatId = msgData?.senderData.chatId.split('@')[0];
             const sender = msgData?.senderData.sender.split('@')[0];
+            const wid = msgData?.instanceData.wid.split('@')[0];
+            const incoming = sender !== wid || chatId === wid;
+            // console.log(chatId, sender, wid, sender !== wid);
 
             setChatsHistory(prev => {
-              const prevMessages = prev[sender];
+              const prevMessages = prev[chatId];
               return {
                 ...prev,
-                [sender]: prevMessages
-                  ? [...prev[sender], { time, text, quoted, incoming: true }]
-                  : [{ time, text, quoted, incoming: true }]
+                [chatId]: prevMessages
+                  ? [...prev[chatId], { time, text, quoted, incoming, senderName }]
+                  : [{ time, text, quoted, incoming, senderName }]
               };
             });
+
+            console.log(notify);
+            notify?.current?.play();
           }
 
 
@@ -63,10 +73,11 @@ function WorkingArea() {
       active = false;
     };
 
-  }, [idInstance, setAuthState, token]);
+  }, [idInstance, notify, setAuthState, token]);
 
   return (
     <div className='working-area'>
+      <Audio ref={notify} />
 
       <SideBar
         currentChat={currentChat}

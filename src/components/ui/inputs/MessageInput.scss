@@ -8,6 +8,13 @@ $input-color: #2a3033;
     padding-left: 70px;
     width: 100%;
 
+    &-outer {
+      position: fixed;
+      left: 350px;
+      bottom: 0;
+      right: 0;
+    }
+
     .loader_circle {
       width: 30px;
       height: 30px;
